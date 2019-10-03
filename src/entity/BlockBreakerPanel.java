@@ -61,6 +61,7 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
 
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         blocks.forEach(block -> block.draw(g, this));
         ball.draw(g, this);
         paddle.draw(g, this);
@@ -82,7 +83,6 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
             reset();
             mainFrame.setVisible(false);
             startScreen.setVisible(true);
-
         }
 
         blocks.forEach(block -> {
@@ -104,11 +104,11 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT && paddle.x < (getWidth() - paddle.width)) {
-            paddle.x += 15;
+            paddle.x += 1;
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT && paddle.x > 0) {
-            paddle.x -= 15;
+            paddle.x -= 1;
         }
     }
 
